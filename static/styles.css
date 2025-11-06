@@ -1,0 +1,23 @@
+body{
+    background-color:#6D6875;
+}
+
+.navbar{
+    height:40px;
+    font-size:25px;
+    background-color:#B5838D;
+    display: flex;
+    justify-content:space-between;
+}
+
+.message{
+    display:inline-block;
+    color:#080705;
+}
+
+.footer{
+    display:inline-block;
+    position:fixed;
+    bottom:2vh;
+    right:2vh;
+}

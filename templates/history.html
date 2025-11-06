@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %} History {% endblock %}
+
+{% block extra_css %}
+    <style>
+        .history{
+            height:200px;
+            width:700px;
+            background-color:#B5838D;
+            border:5px solid #495057;
+            display:flex;
+            align-items:center;
+            justify-content:space-evenly;
+            position:fixed;
+            top:30vh;
+            left:50vh;
+        }
+
+
+        #btn{
+            color:#F1E4F3;
+            height:60px;
+            width:100px;
+            border-radius:20%;
+            background-color:#6D6875;
+        }
+    </style>
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="history">
+        <h2 style="color:#F1E4F3;">History:</h2>
+        <a href="{{ url_for('raw_history') }}">
+            <button id="btn">Raw history</button>
+        </a>
+        <a href="{{ url_for('splitted_history') }}">
+            <button id="btn">Splitted history</button>
+        </a>    
+        <a href="{{ url_for('delete_history') }}">
+            <button id="btn">Delete history</button>
+        </a>
+    </div>
+{% endblock %}

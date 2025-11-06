@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% block title %} Splitted History {% endblock %}
+
+{% block extra_css %}
+    <style>
+            .table-container {
+                color:white;
+                background-color:#B5838D;
+                width: 70%;
+                max-width: 900px;
+                border-radius: 10px;
+                box-shadow: 0 0 15px rgba(0,0,0,0.2);
+                padding: 20px;
+                overflow-y: auto;
+                max-height: 80vh;
+                position:fixed;
+                top:15vh;
+                left:30vh;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                text-align: center;
+            }
+
+            caption {
+                font-size: 1.5em;
+                margin-bottom: 10px;
+                font-weight: bold;
+                color: white;
+            }
+            thead {
+                background-color: #333;
+                color: white;
+                position: sticky;
+                top: 0;
+                z-index: 1;
+            }
+
+            th, td {
+                border: 1px solid #999;
+                padding: 10px;
+            }
+
+            th{
+                background-color: #6c757d;
+            }
+            /* Even rows */
+            tr:nth-child(even) {
+            background-color: #6c757d;
+            }
+
+            /* Odd rows (optional, for contrast) */
+            tr:nth-child(odd) {
+            background-color: #495057;
+            }
+
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="table-container">
+        <table>
+            <h2 >Splitted History (Last 30 Days)</h2>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>will get Rs.</th>
+                    <th>amount</th>
+                    <th>from</th>
+                    <th>Name</th>
+                    <th>Date & Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in split %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>will get Rs.</td>
+                    <td>{{ row[2] }}</td>
+                    <td>from</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[3] }}</td>
+            
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

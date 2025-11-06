@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    {% block extra_css %}{% endblock %}
+    <title> {% block title %} {% endblock %} </title>
+
+</head>
+<body>
+    <div class="navbar">
+        <a id="logo" href="/" style="text-decoration:none; color:#F1E4F3;  font-family:Aladin;">ExpenseSplitter</a>
+        <a id="home" href="/" style="text-decoration:none; color:#F1E4F3;">Home</a>
+        <a id="login" href="/login" style="text-decoration:none; color:#F1E4F3;">LogIn</a>
+        <a id="raw_info" href="/raw_info" style="text-decoration:none; color:#F1E4F3;">Given Info</a>
+        <a id="splitted_info" href="/splitted_info" style="text-decoration:none; color:#F1E4F3;">Splitted Info</a>
+        <a id="history" href="/history" style="text-decoration:none; color:#F1E4F3;">History</a>
+        <a id="logout" href="/logout" style="text-decoration:none; color:#F1E4F3;">LogOut</a>
+    </div>
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div class="message">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-container">
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}"  style="font-size:20px;">{{ message }}</div>
+            {% endfor %}
+            </div>
+        {% endif %}
+        {% endwith %}
+    </div>
+    <footer>
+        <div class="footer">
+            <a href="javascript:history.back()" style="color:black; text-decoration:None; position:fixed; left:2vh; bottom:5vh;">Back&larr;</a>
+            <p>Made by Prachi Mann &hearts;</p>
+        </div>
+    </footer>
+</body>
+</html>
