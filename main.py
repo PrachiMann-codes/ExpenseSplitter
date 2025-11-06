@@ -98,11 +98,11 @@ def splitted_info():
 
             if diff>0:
                 temp = [row[0] , diff]
-                give_money.append(temp)
+                get_money.append(temp)
                 
             elif diff<0:
                 temp = [row[0] , abs(diff)]
-                get_money.append(temp)
+                give_money.append(temp)
 
             else:
                 continue
