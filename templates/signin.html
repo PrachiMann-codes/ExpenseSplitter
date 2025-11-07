@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %} Login {% endblock %}
+{% block title %} SignIn {% endblock %}
 
 {% block extra_css %}
     <style>
@@ -29,17 +29,14 @@
 
 
 {% block content %}
-    <h1 style="position:fixed; top:20vh; left:90vh;">Login</h1>
-    <form action ='{{ url_for("login") }}' method="post" class="form">
+    <h1 style="position:fixed; top:20vh; left:80vh;">Sign In</h1>
+    <form action ='{{ url_for("signin") }}' method="post" class="form">
         <div id="members">
-        <label for = 'user'>Username: </label>
+        <label for = 'user'>Enter Username: </label>
         <input type = 'text' id = 'user' name = 'user' style="background-color:#dce0d9;"> 
-        <label for = 'password'>Password: </label>
-        <input type = 'password' id = 'password' name = 'password'  style="background-color:#dce0d9;"> 
+        <label for = 'password'>Enter Password: </label>
+        <input type = 'password' id = 'password' name = 'password'  style="background-color:#dce0d9;">
         <input type = 'submit' value = 'submit' class="btn">        
-
-        <p>New user?  <a href="{{ url_for('signin') }}">Sign In</a></p>
-        
         </div>
     </form>
 {% endblock %}

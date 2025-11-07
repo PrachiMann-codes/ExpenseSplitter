@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %} SplitData {% endblock %}
+
+{% block extra_css %}
+    <style>
+        .form{
+            min-height:200px;
+            height:auto;
+            width:900px;
+            border: 2px solid black;
+            position:fixed;
+            top:30vh;
+            left:35vh;  
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background-color:#B5838D;
+        }
+
+        .btn{
+            height:40px;
+            width:100px;
+            border-radius:10%;
+            margin-left:20px;
+            background-color:#dce0d9;
+        }
+    </style>
+{% endblock %}
+
+
+{% block content %}
+    <h1 style="position:fixed; top:20vh; left:80vh;">Enter your data</h3>
+    <form action ='{{ url_for("split_data") }}' method="post" class="form">
+        <div id="members">
+        <label for = 'name1'>Name of member: </label>
+        <input type = 'text' id = 'name1' name = 'name1' style="background-color:#dce0d9;"> 
+        <label for = 'amount1'>Amount spent(Rs.): </label>
+        <input type = 'number' id = 'amount1' name = 'amount1'  style="background-color:#dce0d9;"> <br><br>
+
+        <label for = 'name2'>Name of member: </label>
+        <input type = 'text' id = 'name2' name = 'name2'  style="background-color:#dce0d9;"> 
+        <label for = 'amount2'>Amount spent(Rs.): </label>
+        <input type = 'number' id = 'amount2' name = 'amount2'  style="background-color:#dce0d9;"> <br><br>
+        </div>
+
+        <button type="button" onclick="addMember()" class="btn">➕ Add Member</button>
+        <input type = 'submit' value = 'submit' class="btn">        
+    </form>
+
+    <script>
+        let memberCount = 2;
+
+        function addMember() {
+        memberCount++;
+        const container = document.getElementById('members');
+
+        const memberDiv = document.createElement('div');
+
+        memberDiv.innerHTML = `
+            <label for="name${memberCount}">Name of member:</label>
+            <input type="text" id="name${memberCount}" name="name${memberCount}"  style="background-color:#dce0d9;">
+            <label for="amount${memberCount}">Amount spent(Rs.):</label>
+            <input type="number" id="amount${memberCount}" name="amount${memberCount}"  style="background-color:#dce0d9;"><br><br>
+        `;
+        container.appendChild(memberDiv);
+        }
+    </script>
+{% endblock %}

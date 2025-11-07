@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %} Options {% endblock %}
+
+{% block extra_css %}
+    <style>
+    .options{
+        color:white;
+        height:300px;
+        width:700px;
+        background-color:#B5838D;
+        border: 2px solid black;
+        display:flex;
+        justify-content:space-evenly;
+        align-items:center;
+        position:fixed;
+        top:25vh;
+        left:55vh;
+    }
+    #btn{
+            font-size:20px;
+            color:#F1E4F3;
+            height:80px;
+            width:120px;
+            border-radius:20%;
+            background-color:#6D6875;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="options">
+        <a href="{{ url_for('split_data') }}" style="text-decoration:none;">
+            <button id="btn">Split Calculator</button>
+        </a>
+        <a href="{{ url_for('raw_info') }}" style="text-decoration:none;">
+            <button id="btn">Given Info</button>
+        </a>
+        <a href="{{ url_for('splitted_info') }}" style="text-decoration:none;">
+            <button id="btn">Splitted Info</button>
+        </a>
+        <a href="{{ url_for('history') }}" style="text-decoration:none;">
+            <button id="btn">History</button>
+        </a>
+    </div>
+{% endblock %}
