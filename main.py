@@ -17,6 +17,37 @@ def home():
     return render_template('home.html')
 
 
+#calculator
+@app.route('/calculator', methods=['GET'])
+def calculator():
+    return render_template('calculator.html')
+
+
+# Route for result after form submission
+@app.route('/result', methods=['POST'])
+def result():
+    try:
+        num1 = float(request.form.get('num1'))
+        symbol = request.form.get('symbol')
+        num2 = float(request.form.get('num2'))
+
+        if symbol == '+':
+            calc_result = num1 + num2
+        elif symbol == '-':
+            calc_result = num1 - num2
+        elif symbol == '*':
+            calc_result = num1 * num2
+        elif symbol == '/':
+            calc_result = num1 / num2 if num2 != 0 else "Error: Division by zero"
+        else:
+            calc_result = "Invalid symbol"
+
+        return render_template('result.html', result=calc_result)
+
+    except (ValueError, TypeError):
+        return render_template('result.html', result="Error: Invalid input")
+
+
 #login page
 @app.route('/login/', methods = ['POST','GET'])
 def login():     

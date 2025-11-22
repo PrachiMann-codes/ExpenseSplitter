@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %} Calculator {% endblock %}
+
+{% block extra_css %}
+    <style>
+        .form{
+            min-height:200px;
+            height:auto;
+            width:600px;
+            border: 2px solid black;
+            position:fixed;
+            top:30vh;
+            left:60vh;  
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background-color:#B5838D;
+        }
+
+        .btn{
+            height:40px;
+            width:100px;
+            border-radius:10%;
+            margin-left:20px;
+            background-color:#dce0d9;
+        }
+    </style>
+{% endblock %}
+
+
+{% block content %}
+    <h1 style="position:fixed; top:20vh; left:90vh;">Calculator</h1>
+    <form action ='{{ url_for("result") }}' method="post" class="form">
+        <div id="members">
+        <input type = 'number' placeholder="Number1" id = 'num1' name = 'num1' style="background-color:#dce0d9;"> 
+        <select id="symbol" name="symbol" style="background-color:#dce0d9;">
+            <option value="+">+</option>
+            <option value="-">−</option>
+            <option value="*">×</option>
+            <option value="/">÷</option>
+        </select>
+        <input type = 'number' placeholder="Number2" id = 'num2' name = 'num2' style="background-color:#dce0d9;"> 
+        <input type = 'submit' value = 'Calculate' class="btn">               
+        </div>
+    </form>
+{% endblock %}

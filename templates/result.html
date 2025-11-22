@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %} Calculator Result {% endblock %}
+
+{% block extra_css %}
+    <style>
+        .result-box{
+            min-height:200px;
+            height:auto;
+            width:600px;
+            border: 2px solid black;
+            position:fixed;
+            top:30vh;
+            left:60vh;  
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background-color:#B5838D;
+        }
+    </style>
+{% endblock %}
+
+
+{% block content %}
+    <h1 style="position:fixed; top:20vh; left:90vh;">Calculator</h1>
+    <div class="result-box">
+        <h2>Result: {{ result }}</h2>
+    </div>
+    <a href="{{ url_for('calculator') }}" style="position:fixed; top:60vh; left:123vh;">&larr;Back to Calculator</a>
+    </form>
+{% endblock %}
